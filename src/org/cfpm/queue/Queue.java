@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.nlogo.api.ExtensionException;
 import org.nlogo.api.ExtensionObject;
 
 /**
@@ -14,9 +15,10 @@ import org.nlogo.api.ExtensionObject;
  *
  */
 public class Queue implements ExtensionObject {
+		
+	public final static int FIFO = 0;
+	public final static int LIFO = 1;
 	
-	final static int FIFO = 0;
-	final static int LIFO = 1;
 	
 	int strategy;
 	List<QElem> q;
@@ -47,12 +49,23 @@ public class Queue implements ExtensionObject {
 	}
 	
 	void init(int strategy) {
+		// check if strategy is valid
+		if (! isValidStrategy(strategy)) {
+			// use default FIFO strategy
+			strategy = FIFO;
+		}
 		this.strategy = strategy;
 		this.q = new ArrayList<QElem>();
 		this.insertionIndex = 0;
 		resetStats(0.0);
 	}
 	
+	public static boolean isValidStrategy(int strategy) {
+		if (strategy < FIFO) return false;
+		if (strategy > LIFO) return false;
+		return true;
+	}
+
 	public void resetStats(double currentTime) {
 		this.maxSize = 0;
 		this.numInserts = 0;
@@ -68,7 +81,12 @@ public class Queue implements ExtensionObject {
 		return this.q.size();
 	}
 	
-	public void enqueue(Object elem, double currentTime) {
+	public void enqueue(Object elem, double currentTime) throws ExtensionException {
+		// check if currentTime is valid, i.e. >= timeOfLastChange
+		if (currentTime < this.timeOfLastChange) {
+			throw new ExtensionException("attempt to enqueue an element in the past: current time " + currentTime +
+					                     " is smaller than this queue's time of last change " + this.timeOfLastChange);
+		}
 		QElem qElem = new QElem(elem, currentTime);
 		this.q.add(insertionIndex, qElem);
 		if (strategy == FIFO) {
@@ -212,7 +230,7 @@ public class Queue implements ExtensionObject {
 		return buf.toString();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ExtensionException {
 		// do some unit testing
 		Queue q = new Queue(Queue.LIFO);
 		double ct = 0.0;
