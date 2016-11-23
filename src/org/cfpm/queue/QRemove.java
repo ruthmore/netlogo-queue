@@ -47,7 +47,7 @@ public class QRemove extends DefaultReporter {
 		Queue q = (Queue)arg0;
 		double arg1;
 		try {
-			arg1 = args[2].getDoubleValue();
+			arg1 = args[1].getDoubleValue();
 			Object elem = q.dequeue(arg1);
 			if (elem == null) {
 				// turn it into nobody
