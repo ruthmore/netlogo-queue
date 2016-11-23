@@ -45,11 +45,12 @@ public class QGetStats extends DefaultReporter {
 	    }
 		Queue q = (Queue)arg0;
 	    LogoListBuilder list = new LogoListBuilder();
-	    list.add(q.getMeanSize());
-	    list.add(q.getMaxSize());
-	    list.add(q.getMeanWaitTime());
-	    list.add(q.getMaxWaitTime());
-	    list.add(q.getMinWaitTime());
+	    list.add(Double.valueOf(q.getMeanSize()));
+	    list.add(Double.valueOf(q.getMaxSize()));
+	    list.add(Double.valueOf(q.getMeanWaitTime()));
+	    list.add(Double.valueOf(q.getMaxWaitTime()));
+	    list.add(Double.valueOf(q.getMinWaitTime()));
+	    QueueExtension.writeToNetLogo(list.toLogoList().toString(), false, context);
 		return list.toLogoList();
 	}
 
