@@ -12,7 +12,7 @@ import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
 
 /**
- * @author ruth
+ * @author Ruth Meyer
  *
  */
 public class QLength extends DefaultReporter {

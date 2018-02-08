@@ -20,7 +20,7 @@ public class QueueExtension extends DefaultClassManager {
 	/** Flag to toggle output to NetLogo (if set to true, output will take place, if set to false, output will be ignored). 
 	 * In any deployed version of the extension the flag is set to false.
 	 */ 
-	static private boolean outputToNetlogo = true;
+	static private boolean outputToNetlogo = false;
 
 	/* (non-Javadoc)
 	 * @see org.nlogo.api.DefaultClassManager#load(org.nlogo.api.PrimitiveManager)

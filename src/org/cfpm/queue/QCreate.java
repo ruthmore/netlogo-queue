@@ -11,7 +11,7 @@ import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
 
 /**
- * @author ruth
+ * @author Ruth Meyer
  *
  */
 public class QCreate extends DefaultReporter {
@@ -24,7 +24,7 @@ public class QCreate extends DefaultReporter {
 	}
 	
 	/** Performs the creation of a new queue and reports it. The first argument {@link args[0]} has
-	 * to contain the list of field names.
+	 * to contain the queueing strategy.
 	 * 
 	 * @param args the arguments to this call of create
 	 * @param context the NetLogo context

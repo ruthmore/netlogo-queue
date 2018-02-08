@@ -13,7 +13,7 @@ import org.nlogo.api.LogoListBuilder;
 import org.nlogo.api.Syntax;
 
 /**
- * @author ruth
+ * @author Ruth Meyer
  *
  */
 public class QGetStats extends DefaultReporter {

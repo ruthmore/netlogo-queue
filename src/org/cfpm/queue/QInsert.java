@@ -12,7 +12,7 @@ import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
 
 /**
- * @author ruth
+ * @author Ruth Meyer
  *
  */
 public class QInsert extends DefaultCommand {
@@ -27,7 +27,7 @@ public class QInsert extends DefaultCommand {
 	
 	
 	/** Performs the insertion. First argument {@link args[0]} has to be a queue, second argument
-	 * {@link args[1]} has to be the object to be inserted, third argument {@link args[1]} has to be
+	 * {@link args[1]} has to be the object to be inserted, third argument {@link args[2]} has to be
 	 * a double value representing the current time.
 	 * 
 	 *  @param args the arguments to this call of insert
