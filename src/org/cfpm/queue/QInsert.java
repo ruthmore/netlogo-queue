@@ -5,24 +5,25 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultCommand;
+import org.nlogo.api.Command;
 import org.nlogo.api.Dump;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QInsert extends DefaultCommand {
+public class QInsert implements Command {
 
 	// expecting a queue, an entity and a time as input
 	/** The insert primitive expects a queue, the object to be put into the queue, and the current time (as double) as inputs.
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.commandSyntax(new int[]{Syntax.WildcardType(), Syntax.WildcardType(), Syntax.NumberType()});
+		return SyntaxJ.commandSyntax(new int[]{Syntax.WildcardType(), Syntax.WildcardType(), Syntax.NumberType()});
 	}
 	
 	

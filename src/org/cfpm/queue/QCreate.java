@@ -5,22 +5,23 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
+import org.nlogo.api.Reporter;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QCreate extends DefaultReporter {
+public class QCreate implements Reporter {
 
 	/** The create primitive expects a strategy as input and returns a queue.
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.reporterSyntax(new int[]{Syntax.NumberType()}, Syntax.WildcardType());
+		return SyntaxJ.reporterSyntax(new int[]{Syntax.NumberType()}, Syntax.WildcardType());
 	}
 	
 	/** Performs the creation of a new queue and reports it. The first argument {@link args[0]} has

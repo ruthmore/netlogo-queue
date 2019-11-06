@@ -5,23 +5,24 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
+import org.nlogo.api.Reporter;
 import org.nlogo.api.Dump;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QLength extends DefaultReporter {
+public class QLength implements Reporter {
 
 	/** The length primitive expects a queue as input and returns a number (the length of the given queue).
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()}, Syntax.NumberType());
+		return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()}, Syntax.NumberType());
 	}
 	
 	/** Returns the size of the specified queue, that is the number of elements in this queue. The first argument 

@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.nlogo.api.ExtensionException;
-import org.nlogo.api.ExtensionObject;
+import org.nlogo.core.ExtensionObject;
 
 /**
  * @author Ruth Meyer
@@ -157,7 +157,7 @@ public class Queue implements ExtensionObject {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.nlogo.api.ExtensionObject#dump(boolean, boolean, boolean)
+	 * @see org.nlogo.core.ExtensionObject#dump(boolean, boolean, boolean)
 	 */
 	@Override
 	public String dump(boolean readable, boolean exporting, boolean reference) {
@@ -166,7 +166,7 @@ public class Queue implements ExtensionObject {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.nlogo.api.ExtensionObject#getExtensionName()
+	 * @see org.nlogo.core.ExtensionObject#getExtensionName()
 	 */
 	@Override
 	public String getExtensionName() {
@@ -175,7 +175,7 @@ public class Queue implements ExtensionObject {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.nlogo.api.ExtensionObject#getNLTypeName()
+	 * @see org.nlogo.core.ExtensionObject#getNLTypeName()
 	 */
 	@Override
 	public String getNLTypeName() {
@@ -184,7 +184,7 @@ public class Queue implements ExtensionObject {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.nlogo.api.ExtensionObject#recursivelyEqual(java.lang.Object)
+	 * @see org.nlogo.core.ExtensionObject#recursivelyEqual(java.lang.Object)
 	 */
 	@Override
 	public boolean recursivelyEqual(Object o) {

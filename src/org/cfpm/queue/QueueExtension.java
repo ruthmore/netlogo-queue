@@ -8,8 +8,7 @@ import org.nlogo.api.DefaultClassManager;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.PrimitiveManager;
-import org.nlogo.nvm.ExtensionContext;
-import org.nlogo.nvm.Workspace.OutputDestination;
+import org.nlogo.api.OutputDestinationJ;
 
 /**
  * @author ruth
@@ -74,10 +73,10 @@ public class QueueExtension extends DefaultClassManager {
 				* relevant here. */ 
 
 			if (outputToNetlogo) {
-				ExtensionContext extcontext = (ExtensionContext) context; 
+				//ExtensionContext extcontext = (ExtensionContext) context; // not necessary anymore
 				try {
-					extcontext.workspace().outputObject(mssg, null, true, true,
-							(toOutputArea) ? OutputDestination.OUTPUT_AREA : OutputDestination.NORMAL); 
+					context.workspace().outputObject(mssg, null, true, true,
+							(toOutputArea) ? OutputDestinationJ.OUTPUT_AREA() : OutputDestinationJ.NORMAL()); 
 				} 
 				catch (LogoException e) {
 					throw new ExtensionException(e); 

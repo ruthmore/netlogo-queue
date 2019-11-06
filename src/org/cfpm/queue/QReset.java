@@ -5,23 +5,24 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultCommand;
+import org.nlogo.api.Command;
 import org.nlogo.api.Dump;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QReset extends DefaultCommand {
+public class QReset implements Command {
 
 	/** The reset primitive expects a queue and the current time (as double) as inputs.
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.commandSyntax(new int[]{Syntax.WildcardType(), Syntax.NumberType()});
+		return SyntaxJ.commandSyntax(new int[]{Syntax.WildcardType(), Syntax.NumberType()});
 	}
 
 	/** Performs the reset of the statistical counters. First argument {@link args[0]} has to be a queue, second argument

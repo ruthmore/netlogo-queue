@@ -5,23 +5,24 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
+import org.nlogo.api.Reporter;
 import org.nlogo.api.Dump;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QEmpty extends DefaultReporter {
+public class QEmpty implements Reporter {
 
 	/** The empty? primitive expects a queue as input and returns true (if the queue is empty) or false.
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()}, Syntax.BooleanType());
+		return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()}, Syntax.BooleanType());
 	}
 	
 	/** Returns true if the specified queue is empty; otherwise returns false. The first argument {@link args[0]} has

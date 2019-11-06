@@ -5,25 +5,26 @@ package org.cfpm.queue;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
+import org.nlogo.api.Reporter;
 import org.nlogo.api.Dump;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.Nobody$;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Nobody$;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
 /**
  * @author Ruth Meyer
  *
  */
-public class QRemove extends DefaultReporter {
+public class QRemove implements Reporter {
 	
 	/** The remove primitive expects a queue and the current time as input and returns the object at the top of the queue 
 	 *  (or nobody, if the queue is empty)
 	 * 
 	 */
 	public Syntax getSyntax() {
-		return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(), Syntax.NumberType()}, Syntax.WildcardType());
+		return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(), Syntax.NumberType()}, Syntax.WildcardType());
 	}
 	
 
